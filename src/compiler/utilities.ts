@@ -4250,12 +4250,13 @@ namespace ts {
     export function getDefaultLibFileName(options: CompilerOptions): string {
         switch (options.target) {
             case ScriptTarget.ESNext:
+                return "lib.esnext.full.d.ts";
             case ScriptTarget.ES2017:
-                return "lib.es2017.d.ts";
+                return "lib.es2017.full.d.ts";
             case ScriptTarget.ES2016:
-                return "lib.es2016.d.ts";
+                return "lib.es2016.full.d.ts";
             case ScriptTarget.ES2015:
-                return "lib.es6.d.ts";
+                return "lib.es6.d.ts";  // There is a different between lib.es2015.d.ts and lib.es6.d.ts due to legacy. lib.es2015.d.ts will not contains any host library
             default:
                 return "lib.d.ts";
         }
